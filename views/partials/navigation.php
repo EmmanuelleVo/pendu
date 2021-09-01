@@ -1,7 +1,5 @@
 <div role="navigation">
-    <a href="?action=create&resource=team">Ajouter une équipe</a> -
-    <a href="?action=create&resource=match">Ajouter un match</a> -
-    <a href="?action=delete&resource=match">Supprimer un match</a>
+    <a href="?action=create&resource=word">Ajouter un mot</a> -
 </div>
 
 <div>

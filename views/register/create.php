@@ -9,7 +9,7 @@
 </head>
 <body>
 <div>
-    <a href="index.php">Première League</a>
+    <a href="index.php">Retour</a>
 </div>
 <h1>Création du compte de l'administration</h1>
 <form action="index.php" method="post">

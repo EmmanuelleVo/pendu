@@ -1,19 +1,12 @@
 {
-    "name": "thienanvo/scores",
+    "name": "thienanvo/pendu-start",
     "require": {
-        "nesbot/carbon": "^2.49",
-        "intervention/image": "^2.5"
+        "nesbot/carbon": "^2.52"
     },
     "authors": [
         {
             "name": "thienanvo",
             "email": "thienan_vo@live.be"
         }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Models\\": "models/",
-            "Controllers\\": "controllers/"
-        }
-    }
+    ]
 }

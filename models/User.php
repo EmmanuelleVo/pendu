@@ -18,8 +18,6 @@ class User extends Model
         } catch (\PDOException $e) {
             die($e->getMessage());
         }
-
-
     }
 }
 

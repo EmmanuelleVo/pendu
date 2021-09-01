@@ -19,25 +19,43 @@ class Register
         $name = $_POST['name'];
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $passwordConfirm = $_POST['confirm_password'];
         // TODO VALIDATION
-        if (isset($name) || $name === '') {
-            ['error' => 'Remplissez le champ nom'];
+        if (!isset($name) || $name === '') {
+            $_SESSION['errors']['name'] = 'Remplissez le champ nom';
+            header('Location: index.php?action=view&resource=register-form');
+            exit();
         }
         if (!ctype_alnum($name)) { // si ce ne sont pas que des lettres ou chiffres
-            ['error' => 'Entrez des lettres ou des chiffres'];
+            $_SESSION['errors']['name'] = 'Entrez des lettres ou des chiffres';
+            header('Location: index.php?action=view&resource=register-form');
+            exit();
         }
         if (isset($email) || $email === '') {
-            ['error' => 'Remplissez le champ email'];
+            $_SESSION['errors']['email'] = 'Remplissez le champ email';
+            header('Location: index.php?action=view&resource=register-form');
+            exit();
         }
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            ['error' => 'Cet email est invalide. Exemple : test@test.com '];
+            $_SESSION['errors']['email'] = 'Cet email est invalide. Exemple : test@test.com';
+            header('Location: index.php?action=view&resource=register-form');
+            exit();
         }
         if (isset($password) || $password === '') {
-            ['error' => 'Remplissez le champ mot de passe'];
+            $_SESSION['errors']['password'] = 'Le mot de passe doit contenir au moins 8 lettres, 1 majuscule et 1 chiffre';
+            header('Location: index.php?action=view&resource=register-form');
+            exit();
         }
         //Au moins 8 lettres, 1 majuscule et 1 chiffre
         if (preg_match('^\S*(?=\S{8,})(?=\S*[A-Z])(?=\S*[\d])$', $password)) {
-            ['error' => 'Le mot de passe doit contenir au moins 8 lettres, 1 majuscule et 1 chiffre'];
+            $_SESSION['errors']['password'] = 'Le mot de passe doit contenir au moins 8 lettres, 1 majuscule et 1 chiffre';
+            header('Location: index.php?action=view&resource=register-form');
+            exit();
+        }
+        if($passwordConfirm !== $password) {
+            $_SESSION['errors']['confirm_password'] = 'La confirmation du mot de passe est érronée';
+            header('Location: index.php?action=view&resource=register-form');
+            exit();
         }
 
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);

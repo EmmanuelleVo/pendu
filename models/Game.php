@@ -22,6 +22,7 @@ class Game extends Model
         return $pdoSt->fetchAll();
     }
 
+
     /*public function save(array $letter)
     {
         try {

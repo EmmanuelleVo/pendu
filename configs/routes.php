@@ -34,7 +34,7 @@ return [
         'controller' => 'Login',
         'callback' => 'check'
     ],
-    ['method' => 'GET',
+    ['method' => 'POST',
         'action' => 'logout',
         'resource' => 'user',
         'controller' => 'Login',

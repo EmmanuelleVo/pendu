@@ -2,14 +2,14 @@
 
 namespace Controllers;
 
-use Models\User;
+//use Models\User;
 
 class Login
 {
     //
     function create() {
         $view = './views/login/create.php';
-        var_dump('connexion');
+
         return compact('view');
     }
 
@@ -17,12 +17,12 @@ class Login
 
         // TODO Validation à faire - filter/validate,...
 
-        $name = $_POST['name'];
         $email = $_POST['email'];
         $password = $_POST['password'];
 
         //Identification
         $userModel = new \Models\User();
+        //var_dump($userModel);
         $user = $userModel->find($email);
 
         // Authentification (password = password de la DB)

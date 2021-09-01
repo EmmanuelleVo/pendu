@@ -20,6 +20,23 @@ class Register
         $email = $_POST['email'];
         $password = $_POST['password'];
         $passwordConfirm = $_POST['confirm_password'];
+
+        $_SESSION['old']['name'] = $_POST['name'];
+
+
+        if(isset($name) && $name !== '') {
+            $_SESSION['old']['name'] = $_POST['name'];
+        }
+        if(isset($email) && $email !== '') {
+            $_SESSION['old']['email'] = $_POST['email'];
+        }
+        if(isset($password) && $password !== '') {
+            $_SESSION['old']['password'] = $_POST['password'];
+        }
+        if(isset($passwordConfirm) && $passwordConfirm !== '') {
+            $_SESSION['old']['confirm_password'] = $_POST['confirm_password'];
+        }
+
         // TODO VALIDATION
         if (!isset($name) || $name === '') {
             $_SESSION['errors']['name'] = 'Remplissez le champ nom';
@@ -31,6 +48,8 @@ class Register
             header('Location: index.php?action=view&resource=register-form');
             exit();
         }*/
+
+
         if (!isset($email) || $email === '') {
             $_SESSION['errors']['email'] = 'Remplissez le champ email';
             header('Location: index.php?action=view&resource=register-form');

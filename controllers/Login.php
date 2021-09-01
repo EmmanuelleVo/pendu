@@ -20,6 +20,8 @@ class Login
         $email = $_POST['email'];
         $password = $_POST['password'];
 
+
+
         //Identification
         $userModel = new \Models\User();
         //var_dump($userModel);

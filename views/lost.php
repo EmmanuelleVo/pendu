@@ -1,5 +1,5 @@
 <div>
-    <h1>Tu n’as pas trouvé le mot <i><?= $word ?></i> en moins de <?= MAX_TRIALS ?> essais incorrects !</h1>
+    <h1>Tu n’as pas trouvé le mot <i><?= $_SESSION['word'] ?></i> en moins de <?= MAX_TRIALS ?> essais incorrects !</h1>
 </div>
 <div>
     <img src="images/pendu8.gif"

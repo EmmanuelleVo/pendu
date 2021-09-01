@@ -1,0 +1,19 @@
+{
+    "name": "thienanvo/scores",
+    "require": {
+        "nesbot/carbon": "^2.49",
+        "intervention/image": "^2.5"
+    },
+    "authors": [
+        {
+            "name": "thienanvo",
+            "email": "thienan_vo@live.be"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Models\\": "models/",
+            "Controllers\\": "controllers/"
+        }
+    }
+}

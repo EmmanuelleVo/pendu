@@ -8,6 +8,12 @@
     <title><?= PAGE_TITLE ?></title>
 </head>
 <body>
+<?php if(isset($_SESSION['user'])): ?>
+    <?php include('./views/partials/navigation.php') ?>
+<?php else: ?>
+    <?php include('./views/partials/admin-links.php') ?>
+<?php endif; ?>
+
 <?php if($gameState === 'start'): ?>
     <div>
         <h1>Trouve le mot en moins de <?= MAX_TRIALS ?> essais !</h1>
@@ -35,12 +41,14 @@
                 <label for="triedLetter">Choisis ta lettre</label>
                 <select name="triedLetter"
                         id="triedLetter">
-                    <?php foreach ($letters as $letter => $available) : ?>
+                    <?php foreach ($_SESSION['letters'] as $letter => $available) : ?>
                         <?php if ($available): ?>
                             <option value="<?= $letter ?>"><?= $letter ?></option>
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </select>
+                <input type="hidden" name="action" value="store">
+                <input type="hidden" name="resource" value="game">
                 <input type="submit"
                        value="essayer cette lettre">
             </div>
